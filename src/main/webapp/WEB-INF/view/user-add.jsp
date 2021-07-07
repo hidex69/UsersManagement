@@ -44,7 +44,7 @@
 
     <div align="center">
     <h3>Add user</h3>
-    <form:form method="get" action="/save" modelAttribute="user">
+    <form:form method="post" action="/save" modelAttribute="user">
     <table class="content-table">
         <tbody>
         <tr>
