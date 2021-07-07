@@ -16,11 +16,21 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public List<User> loadUsers() {
-        String request = "SELECT * FROM users";
+        String sql = "SELECT * FROM users";
 
-        List<User> users = jdbcTemplate.query(request, new UserRowMapper());
+        List<User> users = jdbcTemplate.query(sql, new UserRowMapper());
 
         return users;
     }
+
+    @Override
+    public void saveUser(User user) {
+        String sql = "INSERT into users(name, email, phone_number) values(?, ?, ?)";
+
+        Object[] params = {user.getName(), user.getEmail(), user.getPhoneNumber()};
+
+        jdbcTemplate.update(sql, params);
+    }
+
 
 }
