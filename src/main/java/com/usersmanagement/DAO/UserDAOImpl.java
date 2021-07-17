@@ -45,4 +45,11 @@ public class UserDAOImpl implements UserDAO {
 
         jdbcTemplate.update(sql, user.getName(), user.getEmail(), user.getPhoneNumber(), user.getId());
     }
+
+    @Override
+    public void deleteUser(int id) {
+        String sql = "DELETE FROM users WHERE id = ?";
+
+        jdbcTemplate.update(sql, id);
+    }
 }

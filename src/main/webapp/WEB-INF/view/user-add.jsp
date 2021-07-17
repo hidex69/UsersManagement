@@ -43,7 +43,7 @@
 <body>
 
     <div align="center">
-    <h3>Add user</h3>
+    <h3>Save user</h3>
     <form:form method="post" action="/save" modelAttribute="user">
     <table class="content-table">
         <tbody>
