@@ -27,10 +27,22 @@ public class UserDAOImpl implements UserDAO {
     public void saveUser(User user) {
         String sql = "INSERT into users(name, email, phone_number) values(?, ?, ?)";
 
-        Object[] params = {user.getName(), user.getEmail(), user.getPhoneNumber()};
-
-        jdbcTemplate.update(sql, params);
+        jdbcTemplate.update(sql, user.getName(), user.getEmail(), user.getPhoneNumber());
     }
 
+    @Override
+    public User getUser(int id) {
 
+        String sql = "SELECT * FROM users where id = ?";
+
+        return jdbcTemplate.queryForObject(sql, new Object[]{id}, new UserRowMapper());
+
+    }
+
+    @Override
+    public void updateUser(User user) {
+        String sql = "UPDATE users SET name = ?, email = ?, phone_number = ? WHERE id = ?";
+
+        jdbcTemplate.update(sql, user.getName(), user.getEmail(), user.getPhoneNumber(), user.getId());
+    }
 }

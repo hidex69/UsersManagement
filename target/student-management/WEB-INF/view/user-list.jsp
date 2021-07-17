@@ -67,6 +67,8 @@
                         <td>${user.name}</td>
                         <td>${user.email}</td>
                         <td>${user.phoneNumber}</td>
+                        <td><a href="/update?id=${user.id}">Update</a></td>
+                        <td><a href="/delete">Delete</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

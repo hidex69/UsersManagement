@@ -48,6 +48,7 @@
     <table class="content-table">
         <tbody>
         <tr>
+            <form:hidden path="id"/>
             <td><form:label path="name">Name</form:label></td>
             <td><form:input path="name"/></td>
         </tr>
